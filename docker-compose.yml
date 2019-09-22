@@ -4,9 +4,10 @@ services:
     ports:
       - '5901:5901'
       - '6901:6901'
-    build: .
-    command: firefox -fullscreen -setDefaultBrowser -silent -url "https://orteil.dashnet.org/cookieclicker/"
+    image: consol/ubuntu-icewm-vnc
+    command: chromium-browser -fullscreen -setDefaultBrowser -silent -url "https://orteil.dashnet.org/cookieclicker/"
     volumes:
-      - ./mozilla:/headless/.mozilla
+      - ./config-chromium:/headless/.config/chromium/
+      - ./Downloads:/headless/Downloads/
     environment:
-      - VNC_PW=me
+      - VNC_PW=cookies
