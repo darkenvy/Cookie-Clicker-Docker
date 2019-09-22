@@ -13,5 +13,11 @@ The download folder is mounted with the host-os so that you can import/export ga
 * or use localhost:5901 with traditional VNC software
 * Profit???
 
+## Tips
+1) For performance, disable sound (right-click tab and mute) and disable all fancy graphics.
+2) Enable "defocus on" and change to a different tab when closing out of the VNC. This will ensure that the low-cpu version of the game kicks in.
+3) Install adblock, tampermonkey and addons for cookie clicker.
+4) Manually export a save every time you are in. autosaving works, but might as well save a hard copy for redundency :)
+
 ## Issues
 * You may experience an issue with folder permissions. We mount the chrome-config folder to persist our savegame. However, it may be owned by root. And this docker image uses user id 1000. The fix? `chown 1000:1000 chrome-config` in your host OS
