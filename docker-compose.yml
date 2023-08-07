@@ -1,13 +1,16 @@
 version: '3.3'
 services:
-  ubuntu-icewm-vnc:
+  rocky:
+    restart: unless-stopped
     ports:
       - '5901:5901'
       - '6901:6901'
-    image: consol/ubuntu-icewm-vnc
-    command: chromium-browser -fullscreen -setDefaultBrowser -silent -url "https://orteil.dashnet.org/cookieclicker/"
+    image: consol/rocky-xfce-vnc
+    command: firefox --new-window https://orteil.dashnet.org/cookieclicker/
     volumes:
-      - ./config-chromium:/headless/.config/chromium/
       - ./Downloads:/headless/Downloads/
+      - ./.mozilla:/headless/.mozilla/
     environment:
-      - VNC_PW=cookies
+      - VNC_PW=cookie
+      - VNC_RESOLUTION=1280x1024
+
